@@ -3,8 +3,8 @@ dist
 dist-ssr
 *.local
 
-# Source/raw asset files — originals only, processed copies live in public/media/
-Games/
+# Raw source files — originals stay local; optimized copies in public/media/ are committed.
+/Games/
 .DS_Store
 .vscode/*
 !.vscode/extensions.json
@@ -12,4 +12,3 @@ Games/
 .env
 .env.local
 .env.*.local
-public/media/
