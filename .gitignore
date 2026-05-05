@@ -1,0 +1,15 @@
+node_modules
+dist
+dist-ssr
+*.local
+
+# Source/raw asset files — originals only, processed copies live in public/media/
+Games/
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+*.log
+.env
+.env.local
+.env.*.local
+public/media/

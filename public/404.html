@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Suparion Games</title>
+    <script>
+      // SPA shim for GitHub Pages — redirect deep links into index.html with the original path preserved.
+      var path = window.location.pathname + window.location.search + window.location.hash;
+      sessionStorage.setItem('redirectPath', path);
+      window.location.replace('/');
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/media/suparion-logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0e0e12" />
+    <meta name="description" content="Suparion Games — independent game studio. Makers of Rydash and more." />
+    <meta property="og:title" content="Suparion Games" />
+    <meta property="og:description" content="Independent game studio. Makers of Rydash." />
+    <meta property="og:image" content="/media/suparion-logo-name.png" />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>Suparion Games</title>
+    <script>
+      // SPA shim — restore deep-link path stored by 404.html on Pages.
+      (function () {
+        var redirect = sessionStorage.getItem('redirectPath');
+        if (redirect && redirect !== '/') {
+          sessionStorage.removeItem('redirectPath');
+          history.replaceState(null, '', redirect);
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-bg text-ink font-body antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
