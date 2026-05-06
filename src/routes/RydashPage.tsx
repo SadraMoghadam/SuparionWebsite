@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { getGame } from '../data/games';
 import StoreButtons from '../components/StoreButtons';
+import Gallery from '../components/Gallery';
+import GameSocials from '../components/GameSocials';
 
 export default function RydashPage() {
   const game = getGame('rydash');
@@ -52,7 +54,7 @@ export default function RydashPage() {
       </section>
 
       {/* Description + trailer */}
-      <section className="container-x py-20 grid lg:grid-cols-2 gap-12">
+      <section className="container-x py-20 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
         <div>
           {game.description.map((p, i) => (
             <p key={i} className="text-lg text-ink-muted leading-relaxed mb-5">
@@ -63,19 +65,20 @@ export default function RydashPage() {
             <StoreButtons game={game} />
           </div>
         </div>
-        <div className="aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/60">
-          <video
-            className="w-full h-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            controls
-            preload="metadata"
-            poster={game.media.background}
-          >
-            <source src={game.media.trailer} type="video/mp4" />
-          </video>
+        <div className="relative mx-auto w-full max-w-[320px] sm:max-w-[380px]">
+          <div className="absolute -inset-6 rounded-[2.5rem] bg-accent/15 blur-3xl opacity-60" />
+          <div className="relative aspect-[9/16] rounded-[2rem] overflow-hidden border border-white/10 bg-black shadow-2xl shadow-black/60">
+            <video
+              className="absolute inset-0 w-full h-full object-contain bg-black"
+              playsInline
+              controls
+              preload="metadata"
+              poster={game.media.background}
+            >
+              <source src={game.media.trailer} type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-[2rem] pointer-events-none" />
+          </div>
         </div>
       </section>
 
@@ -104,21 +107,19 @@ export default function RydashPage() {
         </div>
       </section>
 
-      {/* Splash */}
-      {game.media.splash && (
+      {/* Socials */}
+      {game.socials && <GameSocials socials={game.socials} />}
+
+      {/* Gallery */}
+      {game.media.gallery && game.media.gallery.length > 0 && (
         <section className="container-x py-20">
-          <div className="aspect-video rounded-2xl overflow-hidden border border-white/10">
-            <video
-              className="w-full h-full object-cover"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-            >
-              <source src={game.media.splash} type="video/mp4" />
-            </video>
-          </div>
+          <span className="text-xs uppercase tracking-[0.3em] text-accent font-semibold">
+            Gallery
+          </span>
+          <h2 className="mt-3 font-display font-extrabold tracking-tightest text-4xl sm:text-5xl mb-10">
+            Screens & clips.
+          </h2>
+          <Gallery items={game.media.gallery} />
         </section>
       )}
 

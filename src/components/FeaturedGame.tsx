@@ -47,19 +47,23 @@ export default function FeaturedGame({ game }: { game: GameConfig }) {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/60"
+          className="relative mx-auto w-full max-w-[300px] sm:max-w-[340px]"
         >
-          <video
-            className="w-full h-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster={game.media.background}
-          >
-            <source src={game.media.trailer} type="video/mp4" />
-          </video>
+          <div className="absolute -inset-6 rounded-[2.5rem] bg-accent/15 blur-3xl opacity-60" />
+          <div className="relative aspect-[9/16] rounded-[2rem] overflow-hidden border border-white/10 bg-black shadow-2xl shadow-black/60">
+            <video
+              className="absolute inset-0 w-full h-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster={game.media.background}
+            >
+              <source src={game.media.splash ?? game.media.trailer} type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-[2rem] pointer-events-none" />
+          </div>
         </motion.div>
       </div>
     </section>

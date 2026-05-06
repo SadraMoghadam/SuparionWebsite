@@ -16,9 +16,9 @@ export default {
           dim: '#6b7280',
         },
         accent: {
-          DEFAULT: '#ff8a3d',
-          soft: '#ffb37a',
-          deep: '#e06a1c',
+          DEFAULT: '#00A693',
+          soft: '#2EC4B0',
+          deep: '#00766A',
         },
       },
       fontFamily: {

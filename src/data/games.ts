@@ -28,9 +28,22 @@ export const games: GameConfig[] = [
       background: '/media/games/rydash/background.png',
       trailer: '/media/games/rydash/trailer.mp4',
       splash: '/media/games/rydash/splash.mp4',
+      gallery: [
+        { type: 'image', src: '/media/games/rydash/background.png', caption: 'Key art' },
+        { type: 'video', src: '/media/games/rydash/splash.mp4', caption: 'Splash' },
+        { type: 'image', src: '/media/games/rydash/icon.png', caption: 'App icon' },
+      ],
     },
     status: 'released',
-    accentColor: '#ff8a3d',
+    accentColor: '#00A693',
+    socials: {
+      instagram: '',
+      tiktok: '',
+      youtube: '',
+      twitter: '',
+      discord: '',
+      website: '',
+    },
   },
 ];
 

@@ -2,6 +2,10 @@ export type Platform = 'ios' | 'android' | 'steam' | 'web';
 
 export type GameStatus = 'released' | 'coming-soon';
 
+export type GalleryItem =
+  | { type: 'image'; src: string; caption?: string }
+  | { type: 'video'; src: string; poster?: string; caption?: string };
+
 export type GameConfig = {
   slug: string;
   title: string;
@@ -16,9 +20,20 @@ export type GameConfig = {
     background: string;
     trailer: string;
     splash?: string;
+    gallery?: GalleryItem[];
   };
   status: GameStatus;
   accentColor?: string;
+  socials?: GameSocials;
+};
+
+export type GameSocials = {
+  instagram?: string;
+  tiktok?: string;
+  youtube?: string;
+  twitter?: string;
+  discord?: string;
+  website?: string;
 };
 
 export type StudioInfo = {
