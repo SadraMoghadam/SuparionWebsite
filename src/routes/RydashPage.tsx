@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { getGame } from '../data/games';
 import StoreButtons from '../components/StoreButtons';
 import Gallery from '../components/Gallery';
@@ -11,6 +12,20 @@ export default function RydashPage() {
 
   return (
     <article className="pt-16">
+      <Helmet>
+        <title>Rydash — Casual Arcade Racer | Suparion Games</title>
+        <meta name="description" content="Rydash is a fast, snackable arcade racer built for one-handed play. Tap, swerve, and chain perfect drifts through neon city streets. Free to play on iOS and Android." />
+        <link rel="canonical" href="https://suparion.com/games/rydash" />
+        <meta property="og:title" content="Rydash — Casual Arcade Racer" />
+        <meta property="og:description" content="Tap, swerve, and chain perfect drifts through neon city streets. Free to play on iOS and Android." />
+        <meta property="og:image" content="https://suparion.com/media/games/rydash/background.png" />
+        <meta property="og:url" content="https://suparion.com/games/rydash" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Rydash — Casual Arcade Racer" />
+        <meta name="twitter:description" content="Fast, snackable arcade racer built for one-handed play. Free on iOS and Android." />
+        <meta name="twitter:image" content="https://suparion.com/media/games/rydash/background.png" />
+      </Helmet>
       {/* Hero */}
       <section className="relative h-[80svh] min-h-[520px] w-full overflow-hidden">
         <img
@@ -124,9 +139,15 @@ export default function RydashPage() {
       )}
 
       {/* Back */}
-      <section className="container-x py-16 flex justify-center">
+      <section className="container-x py-16 flex flex-col items-center gap-5">
         <Link to="/" className="btn-ghost">
           ← Back to all games
+        </Link>
+        <Link
+          to="/games/rydash/privacy-policy"
+          className="text-xs text-ink-dim hover:text-ink-muted transition"
+        >
+          Privacy Policy
         </Link>
       </section>
     </article>
