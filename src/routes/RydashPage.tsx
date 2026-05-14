@@ -13,16 +13,16 @@ export default function RydashPage() {
   return (
     <article className="pt-16">
       <Helmet>
-        <title>Rydash — Endless Runner | Suparion Games</title>
-        <meta name="description" content="Ride. Dodge. Beat your best. Rydash is a chill endless runner — hop on a skateboard, bike, or scooter and chase your high score. Free to play on iOS and Android." />
+        <title>Rydash: Endless Runner | Suparion Games</title>
+        <meta name="description" content="Ride. Dodge. Beat your best. Rydash is a chill endless runner. Hop on a skateboard, bike, or scooter and chase your high score. Free to play on iOS and Android." />
         <link rel="canonical" href="https://suparion.com/games/rydash" />
-        <meta property="og:title" content="Rydash — Endless Runner" />
+        <meta property="og:title" content="Rydash: Endless Runner" />
         <meta property="og:description" content="Hop on, dodge obstacles, and chase your high score in this chill endless runner. Free to play on iOS and Android." />
         <meta property="og:image" content="https://suparion.com/media/games/rydash/background.png" />
         <meta property="og:url" content="https://suparion.com/games/rydash" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Rydash — Endless Runner" />
+        <meta name="twitter:title" content="Rydash: Endless Runner" />
         <meta name="twitter:description" content="Hop on, dodge obstacles, and chase your high score. Free on iOS and Android." />
         <meta name="twitter:image" content="https://suparion.com/media/games/rydash/background.png" />
       </Helmet>

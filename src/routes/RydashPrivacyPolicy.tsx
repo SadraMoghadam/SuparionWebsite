@@ -82,7 +82,7 @@ export default function RydashPrivacyPolicy() {
 
       <Section title="4. Advertising">
         <p>
-          Rydash offers <strong>rewarded ads</strong> — short video ads that you can
+          Rydash offers <strong>rewarded ads</strong>: short video ads that you can
           voluntarily choose to watch in exchange for in-game rewards. These ads are powered
           by <strong>Unity Ads</strong>. Unity Ads may collect and use your device's
           advertising identifier and other technical information to serve personalised or

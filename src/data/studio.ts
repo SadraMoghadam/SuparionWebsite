@@ -4,9 +4,9 @@ export const studio: StudioInfo = {
   name: 'Suparion Games',
   tagline: 'We build games worth playing.',
   about: [
-    'Suparion Games is an independent studio designing games that respect your time and reward your curiosity. We make tight, expressive experiences — simple enough to pick up in a moment, deep enough to keep coming back to.',
+    'Suparion Games is an independent studio designing games that respect your time and reward your curiosity. We make tight, expressive experiences: simple enough to pick up in a moment, deep enough to keep coming back to.',
     'Our craft sits at the intersection of feel, focus, and finish: responsive controls, clean visuals, and mechanics that earn every second on screen. No filler, no friction, no dark patterns.',
-    'We are starting on mobile with fast, free-to-play arcade titles like Rydash, and building toward richer, story-driven worlds on PC and console — one carefully shipped game at a time.',
+    'We are starting on mobile with fast, free-to-play arcade titles like Rydash, and building toward richer, story-driven worlds on PC and console, one carefully shipped game at a time.',
   ],
   founder: {
     name: 'Sadra Heidary Moghadam',

@@ -31,7 +31,7 @@ export default function Hero() {
             <span className="text-accent">GAMES</span>
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-ink-muted max-w-xl">
-            {studio.tagline} From casual mobile to story-driven worlds — we build games worth your time.
+            {studio.tagline} From casual mobile to story-driven worlds, we build games worth your time.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <a href="#games" className="btn-primary">See our games</a>

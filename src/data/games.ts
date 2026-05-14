@@ -6,13 +6,13 @@ export const games: GameConfig[] = [
     title: 'Rydash',
     tagline: 'Ride. Dodge. Beat your best.',
     description: [
-      'Rydash — just hop on and ride. A chill, addictive endless runner with one simple promise: pick it up, have fun, and try to beat your own best run. No timers, no pressure, no winning or losing against anyone but yourself — just you, the road, and that itch to go one run further.',
+      'Rydash: just hop on and ride. A chill, addictive endless runner with one simple promise: pick it up, have fun, and try to beat your own best run. No timers, no pressure, no winning or losing against anyone but yourself. Just you, the road, and that itch to go one run further.',
       'Cruise on a skateboard, bike, or scooter through endlessly unfolding worlds. Swipe to change lanes, tap to jump, react to oncoming obstacles, and keep that combo going. Every run is a fresh chance to set a new personal best.',
       'No paywalls blocking the fun, no stamina meters, no nonsense. Just an endless playground designed to make you smile and say "one more run."',
     ],
     features: [
       'Three-lane endless action with smooth swipe-and-tap controls',
-      'Unlock a growing collection of rideables — skateboards, bikes, scooters & more',
+      'Unlock a growing collection of rideables: skateboards, bikes, scooters & more',
       'Powerups: Coin Magnets, Double Coins, Extra Health, Double Lane Change, Invincibility',
       'Tap challenges, dynamic obstacles & surprise moments on every run',
       'Multiple maps with different vibes and visuals to explore',
