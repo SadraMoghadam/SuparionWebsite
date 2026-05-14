@@ -4,19 +4,21 @@ export const games: GameConfig[] = [
   {
     slug: 'rydash',
     title: 'Rydash',
-    tagline: 'Dash. Drift. Dominate.',
-    // TODO: replace with the real Rydash pitch when finalized.
+    tagline: 'Ride. Dodge. Beat your best.',
     description: [
-      'Rydash is a fast, snackable arcade racer built for one-handed play. Tap, swerve, and chain perfect drifts through neon city streets — every run is short, every comeback is electric.',
-      'Designed for mobile-first sessions: pick it up at the bus stop, master a new track on a coffee break, beat your best friend by 0.4 seconds before bed.',
+      'Rydash — just hop on and ride. A chill, addictive endless runner with one simple promise: pick it up, have fun, and try to beat your own best run. No timers, no pressure, no winning or losing against anyone but yourself — just you, the road, and that itch to go one run further.',
+      'Cruise on a skateboard, bike, or scooter through endlessly unfolding worlds. Swipe to change lanes, tap to jump, react to oncoming obstacles, and keep that combo going. Every run is a fresh chance to set a new personal best.',
+      'No paywalls blocking the fun, no stamina meters, no nonsense. Just an endless playground designed to make you smile and say "one more run."',
     ],
     features: [
-      'One-thumb arcade controls that feel right in 30 seconds',
-      'Hand-crafted city tracks with shortcuts to discover',
-      'Daily challenges and global leaderboards',
-      'Free to play — no pay-to-win, no ads mid-race',
+      'Three-lane endless action with smooth swipe-and-tap controls',
+      'Unlock a growing collection of rideables — skateboards, bikes, scooters & more',
+      'Powerups: Coin Magnets, Double Coins, Extra Health, Double Lane Change, Invincibility',
+      'Tap challenges, dynamic obstacles & surprise moments on every run',
+      'Multiple maps with different vibes and visuals to explore',
+      'Daily rewards, in-game shop, and a global leaderboard',
     ],
-    genre: 'Casual arcade racer',
+    genre: 'Endless runner',
     platforms: ['ios', 'android'],
     storeLinks: {
       // TODO: paste real store URLs after launch.
