@@ -21,7 +21,7 @@ export default function RydashPrivacyPolicy() {
       <p className="text-ink-dim text-sm mb-10">
         <strong>Game:</strong> Rydash &nbsp;·&nbsp;
         <strong>Developer:</strong> Suparion Games &nbsp;·&nbsp;
-        <strong>Last updated:</strong> May 14, 2025
+        <strong>Last updated:</strong> May 15, 2026
       </p>
 
       <Section title="1. Introduction">
@@ -86,7 +86,8 @@ export default function RydashPrivacyPolicy() {
           voluntarily choose to watch in exchange for in-game rewards. These ads are powered
           by <strong>Unity Ads</strong>. Unity Ads may collect and use your device's
           advertising identifier and other technical information to serve personalised or
-          contextual ads.
+          contextual ads. For players we know or believe to be under 13, ads are limited to
+          non-personalised, contextual ads only (see Section 7).
         </p>
         <p>
           You can opt out of personalised advertising on your Android device under{' '}
@@ -154,10 +155,36 @@ export default function RydashPrivacyPolicy() {
 
       <Section title="7. Children's Privacy">
         <p>
-          Rydash is not directed at children under the age of 13. We do not knowingly collect
-          personal information from children under 13. If you believe a child under 13 has
-          provided personal information through the game, please contact us immediately and we
-          will delete it.
+          Rydash is a family-friendly game suitable for players of all ages, including children
+          under 13. We take additional steps to protect the privacy of younger players.
+        </p>
+        <p>
+          For any user we know or have reason to believe is under 13, we do not knowingly
+          collect personal information beyond what is strictly necessary to run the game, and
+          we instruct our advertising and analytics partners to treat such traffic as
+          child-directed. This means:
+        </p>
+        <ul className="list-disc list-inside space-y-1 ml-2">
+          <li>
+            Advertising is limited to non-personalised, contextual ads only. The advertising
+            identifier is not used for behavioural profiling, cross-app tracking, or building
+            interest-based audiences.
+          </li>
+          <li>
+            Analytics are limited to aggregated, anonymised gameplay data. No persistent
+            identifiers are used to profile individual children.
+          </li>
+          <li>
+            The leaderboard username is chosen by the player and is not required to play. We
+            ask players not to use real names or any personal information as their username
+            (see Section 6).
+          </li>
+        </ul>
+        <p>
+          We do not knowingly collect a child's real name, address, phone number, email,
+          precise location, or photos. If you are a parent or guardian and believe your child
+          has provided personal information through the game, please contact us at the address
+          in Section 11 and we will delete it.
         </p>
       </Section>
 

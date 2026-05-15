@@ -16,13 +16,13 @@ export const studio: StudioInfo = {
   },
   contact: {
     // TODO: replace with the real address you want public, e.g. contact@suparion.com
-    email: '',
+    email: 'suparion.games@gmail.com',
   },
   socials: {
     // TODO: fill with real URLs when accounts are live.
-    instagram: '',
-    youtube: '',
-    twitter: '',
-    tiktok: '',
+    instagram: 'https://www.instagram.com/suparion.games/',
+    youtube: 'https://www.youtube.com/@SuparionGames',
+    twitter: 'https://x.com/SuparionGames',
+    tiktok: 'https://www.tiktok.com/@suparion.games',
   },
 };

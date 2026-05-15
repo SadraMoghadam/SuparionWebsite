@@ -1,24 +1,22 @@
 import { studio } from '../data/studio';
 
-const SocialLink = ({ href, label }: { href: string; label: string }) => {
-  if (!href) {
-    return (
-      <span className="text-ink-dim cursor-not-allowed" title="Coming soon">
-        {label}
-      </span>
-    );
-  }
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-ink-muted hover:text-accent transition"
-    >
-      {label}
-    </a>
-  );
-};
+const SocialLink = ({ href, label }: { href: string; label: string }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-ink-muted hover:text-accent transition"
+  >
+    {label}
+  </a>
+);
+
+const SOCIAL_LABELS: { key: 'instagram' | 'youtube' | 'twitter' | 'tiktok'; label: string }[] = [
+  { key: 'instagram', label: 'Instagram' },
+  { key: 'youtube', label: 'YouTube' },
+  { key: 'twitter', label: 'Twitter / X' },
+  { key: 'tiktok', label: 'TikTok' },
+];
 
 export default function Footer() {
   const { socials, contact } = studio;
@@ -61,17 +59,20 @@ export default function Footer() {
           )}
         </div>
 
-        <div>
-          <h4 className="text-xs uppercase tracking-[0.3em] text-ink-dim font-semibold mb-4">
-            Follow
-          </h4>
-          <ul className="space-y-2 text-sm">
-            <li><SocialLink href={socials.instagram} label="Instagram" /></li>
-            <li><SocialLink href={socials.youtube} label="YouTube" /></li>
-            <li><SocialLink href={socials.twitter} label="Twitter / X" /></li>
-            <li><SocialLink href={socials.tiktok} label="TikTok" /></li>
-          </ul>
-        </div>
+        {SOCIAL_LABELS.some(({ key }) => socials[key]) && (
+          <div>
+            <h4 className="text-xs uppercase tracking-[0.3em] text-ink-dim font-semibold mb-4">
+              Follow
+            </h4>
+            <ul className="space-y-2 text-sm">
+              {SOCIAL_LABELS.filter(({ key }) => socials[key]).map(({ key, label }) => (
+                <li key={key}>
+                  <SocialLink href={socials[key] as string} label={label} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
 
       <div className="border-t border-white/5">
