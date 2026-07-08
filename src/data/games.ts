@@ -21,14 +21,15 @@ export const games: GameConfig[] = [
     genre: 'Endless runner',
     platforms: ['ios', 'android'],
     storeLinks: {
-      // TODO: paste real store URLs after launch.
+      // TODO: paste real App Store URL after iOS launch.
       ios: '',
-      android: '',
+      android: 'https://play.google.com/store/apps/details?id=com.suparion.rydash',
     },
     media: {
       icon: '/media/games/rydash/icon.png',
       background: '/media/games/rydash/background.png',
       trailer: '/media/games/rydash/trailer.mp4',
+      youtubeId: 'aJbf8uyhsCg',
       splash: '/media/games/rydash/splash.mp4',
       gallery: [
         { type: 'image', src: '/media/games/rydash/background.png', caption: 'Key art' },

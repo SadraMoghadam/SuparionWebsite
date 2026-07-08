@@ -19,6 +19,7 @@ export type GameConfig = {
     icon: string;
     background: string;
     trailer: string;
+    youtubeId?: string;
     splash?: string;
     gallery?: GalleryItem[];
   };

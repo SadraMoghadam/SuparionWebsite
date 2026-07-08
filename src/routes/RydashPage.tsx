@@ -25,6 +25,23 @@ export default function RydashPage() {
         <meta name="twitter:title" content="Rydash: Endless Runner" />
         <meta name="twitter:description" content="Hop on, dodge obstacles, and chase your high score. Free on iOS and Android." />
         <meta name="twitter:image" content="https://suparion.com/media/games/rydash/background.png" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'MobileApplication',
+            name: 'Rydash',
+            operatingSystem: 'Android',
+            applicationCategory: 'GameApplication',
+            genre: game.genre,
+            description: game.tagline,
+            url: 'https://suparion.com/games/rydash',
+            image: 'https://suparion.com/media/games/rydash/icon.png',
+            installUrl: game.storeLinks.android,
+            downloadUrl: game.storeLinks.android,
+            author: { '@type': 'Organization', name: 'Suparion Games' },
+            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+          })}
+        </script>
       </Helmet>
       {/* Hero */}
       <section className="relative h-[80svh] min-h-[520px] w-full overflow-hidden">
@@ -80,21 +97,38 @@ export default function RydashPage() {
             <StoreButtons game={game} />
           </div>
         </div>
-        <div className="relative mx-auto w-full max-w-[320px] sm:max-w-[380px]">
-          <div className="absolute -inset-6 rounded-[2.5rem] bg-accent/15 blur-3xl opacity-60" />
-          <div className="relative aspect-[9/16] rounded-[2rem] overflow-hidden border border-white/10 bg-black shadow-2xl shadow-black/60">
-            <video
-              className="absolute inset-0 w-full h-full object-contain bg-black"
-              playsInline
-              controls
-              preload="metadata"
-              poster={game.media.background}
-            >
-              <source src={game.media.trailer} type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-[2rem] pointer-events-none" />
+        {game.media.youtubeId ? (
+          <div className="relative w-full">
+            <div className="absolute -inset-6 rounded-[2.5rem] bg-accent/15 blur-3xl opacity-60" />
+            <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 bg-black shadow-2xl shadow-black/60">
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src={`https://www.youtube-nocookie.com/embed/${game.media.youtubeId}`}
+                title={`${game.title} trailer`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                loading="lazy"
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="relative mx-auto w-full max-w-[320px] sm:max-w-[380px]">
+            <div className="absolute -inset-6 rounded-[2.5rem] bg-accent/15 blur-3xl opacity-60" />
+            <div className="relative aspect-[9/16] rounded-[2rem] overflow-hidden border border-white/10 bg-black shadow-2xl shadow-black/60">
+              <video
+                className="absolute inset-0 w-full h-full object-contain bg-black"
+                playsInline
+                controls
+                preload="metadata"
+                poster={game.media.background}
+              >
+                <source src={game.media.trailer} type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-[2rem] pointer-events-none" />
+            </div>
+          </div>
+        )}
       </section>
 
       {/* Features */}

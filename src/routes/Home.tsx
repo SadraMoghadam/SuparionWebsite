@@ -4,6 +4,7 @@ import FeaturedGame from '../components/FeaturedGame';
 import GamesGrid from '../components/GamesGrid';
 import About from '../components/About';
 import { games } from '../data/games';
+import { studio } from '../data/studio';
 
 export default function Home() {
   const featured = games[0];
@@ -17,6 +18,29 @@ export default function Home() {
         <meta property="og:description" content="Makers of Rydash, a chill, free endless runner for iOS and Android." />
         <meta property="og:image" content="https://suparion.com/media/suparion-logo-name.png" />
         <meta property="og:url" content="https://suparion.com/" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Suparion Games | Independent Game Studio" />
+        <meta name="twitter:description" content="Makers of Rydash, a chill, free endless runner for iOS and Android." />
+        <meta name="twitter:image" content="https://suparion.com/media/suparion-logo-name.png" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: studio.name,
+            url: 'https://suparion.com/',
+            logo: 'https://suparion.com/media/suparion-logo-name.png',
+            description: studio.about[0],
+            email: studio.contact.email,
+            founder: { '@type': 'Person', name: studio.founder.name },
+            sameAs: [
+              studio.socials.instagram,
+              studio.socials.youtube,
+              studio.socials.twitter,
+              studio.socials.tiktok,
+            ],
+          })}
+        </script>
       </Helmet>
       <Hero />
       {featured && <FeaturedGame game={featured} />}
