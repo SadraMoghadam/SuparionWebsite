@@ -48,6 +48,51 @@ export const games: GameConfig[] = [
       website: '',
     },
   },
+  {
+    slug: 'pizzup',
+    title: 'PizzUp!',
+    tagline: 'Stack it high. Serve it hot.',
+    // TODO: replace this placeholder with the real description copy.
+    description: [
+      'Description coming soon. PizzUp! is in the oven and we are writing up the good stuff right now.',
+      'Check back shortly for the full rundown of what the game is and how it plays.',
+    ],
+    // TODO: replace with the real feature list.
+    features: [
+      'Feature list coming soon',
+      'Feature list coming soon',
+      'Feature list coming soon',
+      'Feature list coming soon',
+    ],
+    genre: 'Arcade',
+    platforms: ['ios', 'android'],
+    storeLinks: {
+      // TODO: paste real store URLs at launch.
+      ios: '',
+      android: '',
+    },
+    media: {
+      icon: '/media/games/pizzup/PizzUpIcon.png',
+      background: '/media/games/pizzup/Horizontal.jpg',
+      trailer: '',
+      portrait: '/media/games/pizzup/Vertical.jpg',
+      gallery: [
+        { type: 'image', src: '/media/games/pizzup/Horizontal.jpg', caption: 'Key art' },
+        { type: 'image', src: '/media/games/pizzup/Vertical.jpg', caption: 'Poster' },
+        { type: 'image', src: '/media/games/pizzup/PizzUpIcon.png', caption: 'App icon' },
+      ],
+    },
+    status: 'coming-soon',
+    accentColor: '#E4572E',
+    socials: {
+      instagram: '',
+      tiktok: '',
+      youtube: '',
+      twitter: '',
+      discord: '',
+      website: '',
+    },
+  },
 ];
 
 export const getGame = (slug: string): GameConfig | undefined =>

@@ -21,6 +21,8 @@ export type GameConfig = {
     trailer: string;
     youtubeId?: string;
     splash?: string;
+    /** Portrait key art, used where a game has no trailer video yet. */
+    portrait?: string;
     gallery?: GalleryItem[];
   };
   status: GameStatus;
