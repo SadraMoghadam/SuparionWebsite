@@ -38,6 +38,7 @@ export const games: GameConfig[] = [
       ],
     },
     status: 'released',
+    featured: true,
     accentColor: '#00A693',
     socials: {
       instagram: '',
@@ -83,6 +84,7 @@ export const games: GameConfig[] = [
       ],
     },
     status: 'coming-soon',
+    featured: true,
     accentColor: '#E4572E',
     socials: {
       instagram: '',

@@ -26,6 +26,8 @@ export type GameConfig = {
     gallery?: GalleryItem[];
   };
   status: GameStatus;
+  /** Shown in the featured band on the home page, in array order. */
+  featured?: boolean;
   accentColor?: string;
   socials?: GameSocials;
 };
