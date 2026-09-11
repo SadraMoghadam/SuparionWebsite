@@ -44,11 +44,17 @@ export default function PizzUpPage() {
 
       {/* Hero */}
       <section className="relative h-[80svh] min-h-[520px] w-full overflow-hidden">
-        <img
-          src={game.media.background}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover opacity-70"
-        />
+        {/* Wide key art on desktop, portrait art on phones, so neither orientation gets cropped to nothing. */}
+        <picture>
+          {game.media.portrait && (
+            <source media="(max-width: 639px)" srcSet={game.media.portrait} />
+          )}
+          <img
+            src={game.media.background}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover opacity-70"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-bg/20" />
         <div className="absolute inset-0 bg-gradient-to-r from-bg/70 via-transparent to-bg/20" />
 

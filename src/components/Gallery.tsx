@@ -21,25 +21,40 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
 
   return (
     <>
-      <div className="columns-2 sm:columns-3 lg:columns-4 gap-4 [column-fill:_balance]">
+      {/*
+        Uniform square tiles with contained art: gallery items mix landscape key
+        art, portrait posters and square icons, so a masonry column layout left
+        tall items dominating and short ones stranded. A blurred copy of the same
+        art fills the letterbox area so nothing is cropped and every tile matches.
+      */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
         {items.map((item, i) => (
           <button
             key={i}
             type="button"
             onClick={() => setActive(i)}
-            className="group relative mb-4 block w-full break-inside-avoid rounded-xl overflow-hidden border border-white/10 bg-bg-soft focus:outline-none focus:ring-2 focus:ring-accent"
+            className="group relative aspect-square block w-full rounded-xl overflow-hidden border border-white/10 bg-bg-soft focus:outline-none focus:ring-2 focus:ring-accent"
           >
             {item.type === 'image' ? (
-              <img
-                src={item.src}
-                alt={item.caption ?? ''}
-                className="block w-full h-auto transition-transform duration-500 group-hover:scale-[1.03]"
-                loading="lazy"
-              />
+              <>
+                <img
+                  src={item.src}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-40"
+                  loading="lazy"
+                />
+                <img
+                  src={item.src}
+                  alt={item.caption ?? ''}
+                  className="absolute inset-0 w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+              </>
             ) : (
               <>
                 <video
-                  className="block w-full h-auto"
+                  className="absolute inset-0 w-full h-full object-contain bg-black/40"
                   src={item.src}
                   poster={item.poster}
                   muted
@@ -48,13 +63,13 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
                   autoPlay
                   preload="metadata"
                 />
-                <span className="absolute top-2 right-2 text-[10px] uppercase tracking-widest bg-black/60 text-ink px-2 py-1 rounded-full border border-white/10">
+                <span className="absolute top-2 right-2 z-10 text-[10px] uppercase tracking-widest bg-black/60 text-ink px-2 py-1 rounded-full border border-white/10">
                   Video
                 </span>
               </>
             )}
             {item.caption && (
-              <span className="absolute bottom-0 left-0 right-0 p-3 text-xs text-ink-muted bg-gradient-to-t from-black/80 to-transparent text-left">
+              <span className="absolute bottom-0 left-0 right-0 z-10 p-3 text-xs text-ink-muted bg-gradient-to-t from-black/80 to-transparent text-left">
                 {item.caption}
               </span>
             )}

@@ -15,12 +15,17 @@ export default function FeaturedGame({
   return (
     <section className="relative w-full overflow-hidden">
       <div className="absolute inset-0">
-        <img
-          src={game.media.background}
-          alt=""
-          className="w-full h-full object-cover opacity-50"
-          loading="lazy"
-        />
+        <picture className="block w-full h-full">
+          {game.media.portrait && (
+            <source media="(max-width: 639px)" srcSet={game.media.portrait} />
+          )}
+          <img
+            src={game.media.background}
+            alt=""
+            className="w-full h-full object-cover opacity-50"
+            loading="lazy"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/80 to-bg/30" />
         <div className="absolute inset-0 bg-gradient-to-r from-bg/80 via-transparent to-bg/40" />
       </div>
