@@ -4,6 +4,13 @@ import type { GalleryItem } from '../types';
 
 export default function Gallery({ items }: { items: GalleryItem[] }) {
   const [active, setActive] = useState<number | null>(null);
+  const [ratios, setRatios] = useState<Record<number, number>>({});
+
+  // Each tile is sized from the art's own aspect ratio, measured once it loads.
+  const setRatio = (index: number, w: number, h: number) => {
+    if (!w || !h) return;
+    setRatios((prev) => (prev[index] ? prev : { ...prev, [index]: w / h }));
+  };
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -22,59 +29,61 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
   return (
     <>
       {/*
-        Uniform square tiles with contained art: gallery items mix landscape key
-        art, portrait posters and square icons, so a masonry column layout left
-        tall items dominating and short ones stranded. A blurred copy of the same
-        art fills the letterbox area so nothing is cropped and every tile matches.
+        Justified rows: gallery art mixes landscape, portrait and square pieces,
+        so every tile takes its width from its own aspect ratio. Within a row the
+        widths grow in proportion to those ratios, which fills the row edge to
+        edge and leaves each tile exactly the shape of its art, so nothing is
+        letterboxed and nothing is cropped.
       */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-        {items.map((item, i) => (
-          <button
-            key={i}
-            type="button"
-            onClick={() => setActive(i)}
-            className="group relative aspect-square block w-full rounded-xl overflow-hidden border border-white/10 bg-bg-soft focus:outline-none focus:ring-2 focus:ring-accent"
-          >
-            {item.type === 'image' ? (
-              <>
-                <img
-                  src={item.src}
-                  alt=""
-                  aria-hidden="true"
-                  className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-40"
-                  loading="lazy"
-                />
+      <div className="flex flex-wrap gap-4">
+        {items.map((item, i) => {
+          const ratio = ratios[i] ?? 1;
+          return (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setActive(i)}
+              style={{ flexGrow: ratio, aspectRatio: String(ratio) }}
+              className="group relative block basis-full sm:basis-0 sm:min-w-[7rem] rounded-xl overflow-hidden border border-white/10 bg-bg-soft focus:outline-none focus:ring-2 focus:ring-accent"
+            >
+              {item.type === 'image' ? (
                 <img
                   src={item.src}
                   alt={item.caption ?? ''}
-                  className="absolute inset-0 w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+                  onLoad={(e) =>
+                    setRatio(i, e.currentTarget.naturalWidth, e.currentTarget.naturalHeight)
+                  }
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   loading="lazy"
                 />
-              </>
-            ) : (
-              <>
-                <video
-                  className="absolute inset-0 w-full h-full object-contain bg-black/40"
-                  src={item.src}
-                  poster={item.poster}
-                  muted
-                  loop
-                  playsInline
-                  autoPlay
-                  preload="metadata"
-                />
-                <span className="absolute top-2 right-2 z-10 text-[10px] uppercase tracking-widest bg-black/60 text-ink px-2 py-1 rounded-full border border-white/10">
-                  Video
+              ) : (
+                <>
+                  <video
+                    className="absolute inset-0 w-full h-full object-cover"
+                    src={item.src}
+                    poster={item.poster}
+                    onLoadedMetadata={(e) =>
+                      setRatio(i, e.currentTarget.videoWidth, e.currentTarget.videoHeight)
+                    }
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    preload="metadata"
+                  />
+                  <span className="absolute top-2 right-2 z-10 text-[10px] uppercase tracking-widest bg-black/60 text-ink px-2 py-1 rounded-full border border-white/10">
+                    Video
+                  </span>
+                </>
+              )}
+              {item.caption && (
+                <span className="absolute bottom-0 left-0 right-0 z-10 p-3 text-xs text-ink-muted bg-gradient-to-t from-black/80 to-transparent text-left">
+                  {item.caption}
                 </span>
-              </>
-            )}
-            {item.caption && (
-              <span className="absolute bottom-0 left-0 right-0 z-10 p-3 text-xs text-ink-muted bg-gradient-to-t from-black/80 to-transparent text-left">
-                {item.caption}
-              </span>
-            )}
-          </button>
-        ))}
+              )}
+            </button>
+          );
+        })}
       </div>
 
       <AnimatePresence>
