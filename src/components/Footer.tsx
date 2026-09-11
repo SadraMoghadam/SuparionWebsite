@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { studio } from '../data/studio';
 
 const SocialLink = ({ href, label }: { href: string; label: string }) => (
@@ -16,6 +17,12 @@ const SOCIAL_LABELS: { key: 'instagram' | 'youtube' | 'twitter' | 'tiktok'; labe
   { key: 'youtube', label: 'YouTube' },
   { key: 'twitter', label: 'Twitter / X' },
   { key: 'tiktok', label: 'TikTok' },
+];
+
+const LEGAL_LINKS = [
+  { to: '/games/rydash/privacy-policy', label: 'Rydash Privacy' },
+  { to: '/games/pizzup/privacy-policy', label: 'PizzUp! Privacy' },
+  { to: '/games/pizzup/terms-of-service', label: 'PizzUp! Terms' },
 ];
 
 export default function Footer() {
@@ -78,7 +85,13 @@ export default function Footer() {
       <div className="border-t border-white/5">
         <div className="container-x py-6 text-xs text-ink-dim flex flex-wrap items-center justify-between gap-3">
           <span>© {year} Suparion Games. All rights reserved.</span>
-          <span>Made with care.</span>
+          <nav className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            {LEGAL_LINKS.map(({ to, label }) => (
+              <Link key={to} to={to} className="hover:text-accent transition">
+                {label}
+              </Link>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>

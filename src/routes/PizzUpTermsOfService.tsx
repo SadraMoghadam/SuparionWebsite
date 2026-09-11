@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <section className="mb-10">
@@ -10,6 +11,17 @@ const Section = ({ title, children }: { title: string; children: React.ReactNode
 export default function PizzUpTermsOfService() {
   return (
     <div className="pt-24 pb-20 container-x max-w-3xl mx-auto">
+      <Helmet>
+        <title>PizzUp! Terms of Service | Suparion Games</title>
+        <meta
+          name="description"
+          content="Terms of Service for PizzUp! by Suparion Games: licence to play, player conduct, virtual items, advertising, liability, and contact details."
+        />
+        <link rel="canonical" href="https://suparion.com/games/pizzup/terms-of-service" />
+        <meta property="og:title" content="PizzUp! Terms of Service" />
+        <meta property="og:url" content="https://suparion.com/games/pizzup/terms-of-service" />
+        <meta property="og:type" content="article" />
+      </Helmet>
       <Link
         to="/games/pizzup"
         className="inline-flex items-center gap-2 text-sm text-ink-muted hover:text-accent transition mb-10"

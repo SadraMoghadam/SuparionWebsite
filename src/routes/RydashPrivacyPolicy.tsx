@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <section className="mb-10">
@@ -10,6 +11,17 @@ const Section = ({ title, children }: { title: string; children: React.ReactNode
 export default function RydashPrivacyPolicy() {
   return (
     <div className="pt-24 pb-20 container-x max-w-3xl mx-auto">
+      <Helmet>
+        <title>Rydash Privacy Policy | Suparion Games</title>
+        <meta
+          name="description"
+          content="Privacy Policy for Rydash by Suparion Games: what data the game collects, how it is used, advertising and analytics partners, children's privacy, and how to contact us."
+        />
+        <link rel="canonical" href="https://suparion.com/games/rydash/privacy-policy" />
+        <meta property="og:title" content="Rydash Privacy Policy" />
+        <meta property="og:url" content="https://suparion.com/games/rydash/privacy-policy" />
+        <meta property="og:type" content="article" />
+      </Helmet>
       <Link
         to="/games/rydash"
         className="inline-flex items-center gap-2 text-sm text-ink-muted hover:text-accent transition mb-10"
