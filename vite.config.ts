@@ -32,7 +32,7 @@ const PRERENDER_ROUTES: Record<string, RouteMeta> = {
   '/games/pizzup': {
     title: 'PizzUp! | Suparion Games',
     description:
-      'Stack it high. Serve it hot. PizzUp! is a new arcade game from Suparion Games, coming soon to iOS and Android.',
+      'PizzUp! is a pizza stacking game: catch, balance and build the tallest tower in Italy. A new arcade game from Suparion Games, coming soon to iOS and Android.',
     image: `${SITE}/media/games/pizzup/Horizontal.jpg`,
   },
   '/games/pizzup/privacy-policy': {

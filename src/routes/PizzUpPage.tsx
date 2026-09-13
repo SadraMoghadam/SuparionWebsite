@@ -14,16 +14,16 @@ export default function PizzUpPage() {
     <article className="pt-16">
       <Helmet>
         <title>PizzUp! | Suparion Games</title>
-        <meta name="description" content="Stack it high. Serve it hot. PizzUp! is a new arcade game from Suparion Games, coming soon to iOS and Android." />
+        <meta name="description" content="PizzUp! is a pizza stacking game: catch, balance and build the tallest tower in Italy. A new arcade game from Suparion Games, coming soon to iOS and Android." />
         <link rel="canonical" href="https://suparion.com/games/pizzup" />
         <meta property="og:title" content="PizzUp!" />
-        <meta property="og:description" content="Stack it high. Serve it hot. Coming soon to iOS and Android." />
+        <meta property="og:description" content="Pizza stacking game: catch, balance and build the tallest tower in Italy! Coming soon to iOS and Android." />
         <meta property="og:image" content="https://suparion.com/media/games/pizzup/Horizontal.jpg" />
         <meta property="og:url" content="https://suparion.com/games/pizzup" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="PizzUp!" />
-        <meta name="twitter:description" content="Stack it high. Serve it hot. Coming soon to iOS and Android." />
+        <meta name="twitter:description" content="Pizza stacking game: catch, balance and build the tallest tower in Italy! Coming soon to iOS and Android." />
         <meta name="twitter:image" content="https://suparion.com/media/games/pizzup/Horizontal.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({

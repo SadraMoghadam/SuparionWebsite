@@ -52,20 +52,22 @@ export const games: GameConfig[] = [
   {
     slug: 'pizzup',
     title: 'PizzUp!',
-    tagline: 'Stack it high. Serve it hot.',
-    // TODO: replace this placeholder with the real description copy.
+    tagline: 'Catch, balance and build the tallest tower in Italy!',
     description: [
-      'Description coming soon. PizzUp! is in the oven and we are writing up the good stuff right now.',
-      'Check back shortly for the full rundown of what the game is and how it plays.',
+      'How high can you stack your pizza tower? Welcome to PizzUp!, a fun pizza stacking game where timing, balance and perfect catches are everything. A chef throws pizzas from above and your job is to catch them on your tray and stack them as high as possible. Land pizzas perfectly to keep your tower stable, build combos and earn more coins. Miss the center, and your whole pizza tower can start to wobble!',
+      'Simple to play, hard to master, PizzUp! mixes casual arcade gameplay, stacking and balance mechanics into quick and satisfying runs. Catch perfect pizzas, build combos and beat your high score. The better your timing, the taller your pizza tower can grow!',
+      'Travel across Italy and unlock new colorful locations inspired by famous Italian cities and landscapes. Earn coins as you play, unlock new content and challenge yourself to build an even higher stack in every run.',
+      'Whether you love pizza games, stacking games, balance games or casual arcade games, PizzUp! is easy to pick up and surprisingly hard to put down. Catch the pizza. Keep your balance. Build the tallest tower!',
     ],
-    // TODO: replace with the real feature list.
     features: [
-      'Feature list coming soon',
-      'Feature list coming soon',
-      'Feature list coming soon',
-      'Feature list coming soon',
+      'One-tap catching: time every drop and land it dead center',
+      'Real balance physics: off-center pizzas make your tower wobble',
+      'Combo system that rewards perfect catches with more coins',
+      'Colorful locations to unlock, inspired by Italian cities and landscapes',
+      'Earn coins as you play and unlock new content',
+      'Quick runs built for chasing a new high score',
     ],
-    genre: 'Arcade',
+    genre: 'Casual arcade stacking',
     platforms: ['ios', 'android'],
     storeLinks: {
       // TODO: paste real store URLs at launch.
