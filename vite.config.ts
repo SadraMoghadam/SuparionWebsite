@@ -2,6 +2,9 @@ import { defineConfig, Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
+import { renderLegalHtml } from './src/content/renderLegalHtml';
+import { pizzupPrivacyPolicy } from './src/content/pizzupPrivacyPolicy';
+import { pizzupTermsOfService } from './src/content/pizzupTermsOfService';
 
 const SITE = 'https://suparion.com';
 
@@ -9,6 +12,11 @@ type RouteMeta = {
   title: string;
   description: string;
   image?: string;
+  /**
+   * Fully rendered page body, written into #root so the page is readable with
+   * JavaScript disabled or blocked. React renders the same markup on boot.
+   */
+  body?: string;
 };
 
 /**
@@ -39,11 +47,13 @@ const PRERENDER_ROUTES: Record<string, RouteMeta> = {
     title: 'PizzUp! Privacy Policy | Suparion Games',
     description:
       'Privacy Policy for PizzUp! by Suparion Games: what data the game collects, how it is used, advertising and analytics partners, children’s privacy, and how to contact us.',
+    body: renderLegalHtml(pizzupPrivacyPolicy),
   },
   '/games/pizzup/terms-of-service': {
     title: 'PizzUp! Terms of Service | Suparion Games',
     description:
       'Terms of Service for PizzUp! by Suparion Games: licence to play, player conduct, virtual items, advertising, liability, and contact details.',
+    body: renderLegalHtml(pizzupTermsOfService),
   },
 };
 
@@ -81,7 +91,13 @@ function applyMeta(html: string, route: string, meta: RouteMeta): string {
     );
   }
 
-  return out.replace('</head>', `    <link rel="canonical" href="${url}" />\n  </head>`);
+  out = out.replace('</head>', `    <link rel="canonical" href="${url}" />\n  </head>`);
+
+  if (meta.body) {
+    out = out.replace('<div id="root"></div>', `<div id="root">${meta.body}</div>`);
+  }
+
+  return out;
 }
 
 function prerenderRoutes(): Plugin {
