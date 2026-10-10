@@ -6,7 +6,7 @@ export const pizzupPrivacyPolicy: LegalDoc = {
   heading: 'Privacy Policy',
   game: 'PizzUp!',
   developer: 'Suparion Games',
-  lastUpdated: 'September 11, 2026',
+  lastUpdated: 'September 16, 2026',
   back: { to: '/games/pizzup', label: '← Back to PizzUp!' },
   companion: { to: '/games/pizzup/terms-of-service', label: 'Terms of Service →' },
   sections: [
@@ -31,17 +31,16 @@ export const pizzupPrivacyPolicy: LegalDoc = {
         {
           type: 'ul',
           items: [
-            '**Username:** A display name you choose yourself when entering the leaderboard. This name is visible to other players on global and local leaderboards. We do not require your real name.',
+            '**Username:** A display name you choose yourself when entering the leaderboard. This name is visible to other players on the leaderboard. We do not require your real name.',
           ],
         },
         { type: 'subheading', text: 'b) Automatically collected information' },
         {
           type: 'ul',
           items: [
-            '**Leaderboard scores:** Your in-game scores and ranking data associated with your chosen username.',
-            '**Gameplay analytics:** Aggregated, anonymised data about how the game is played (e.g., levels reached, sessions, feature usage) collected via Firebase Analytics and Unity Analytics. This data does not identify you personally.',
-            '**Device & crash data:** Device model, OS version, and crash/error logs collected to diagnose technical issues.',
-            "**Advertising identifiers:** Your device's advertising ID (GAID on Android, IDFA on iOS) collected by Unity Ads to serve relevant rewarded ads.",
+            '**Leaderboard scores:** Your best score and ranking, stored with the display name you choose.',
+            "**Gameplay analytics:** How the game is played (screens opened, runs completed, features used, coin and rank progress), collected via **Google Firebase Analytics**. Firebase generates a random identifier for your installation (an app instance ID) and also reads your device's vendor identifier (IDFV). We do not link these to your name, email, or any account, and we do not set a user identifier in our analytics.",
+            '**Purchase events:** When a purchase completes, we record which product was bought and its price. We never receive your payment details. See Section 6a.',
           ],
         },
       ],
@@ -52,10 +51,8 @@ export const pizzupPrivacyPolicy: LegalDoc = {
         {
           type: 'ul',
           items: [
-            'Display your username and score on leaderboards.',
+            'Display your username and score on the leaderboard.',
             'Improve gameplay balance and fix bugs using aggregated analytics.',
-            'Serve advertisements, including rewarded ads you choose to watch.',
-            'Monitor and fix crashes and technical issues.',
             'Comply with legal obligations.',
           ],
         },
@@ -66,15 +63,11 @@ export const pizzupPrivacyPolicy: LegalDoc = {
       blocks: [
         {
           type: 'p',
-          text: "PizzUp! offers **rewarded ads**: short video ads that you can voluntarily choose to watch in exchange for in-game rewards. These ads are powered by **Unity Ads**. Unity Ads may collect and use your device's advertising identifier and other technical information to serve personalised or contextual ads. For players we know or believe to be under 13, ads are limited to non-personalised, contextual ads only (see Section 7).",
+          text: "**PizzUp! does not show advertising and contains no advertising SDK.** We do not collect or use your device's advertising identifier (IDFA on iOS, GAID on Android), we do not ask for tracking permission, and we do not track you across other companies' apps or websites. We do not sell or share your data with data brokers.",
         },
         {
           type: 'p',
-          text: 'You can opt out of personalised advertising on your Android device under *Settings → Google → Ads → Opt out of Ads Personalization*, or reset your advertising ID at any time in the same menu. On iOS you can control this under *Settings → Privacy & Security → Tracking*.',
-        },
-        {
-          type: 'ul',
-          items: [`Unity Ads Privacy Policy: [unity.com/legal/privacy-policy](${UNITY_PRIVACY})`],
+          text: 'If this changes in a future version, we will update this policy and our App Store privacy disclosures before that version is released.',
         },
       ],
     },
@@ -83,11 +76,14 @@ export const pizzupPrivacyPolicy: LegalDoc = {
       blocks: [
         {
           type: 'p',
-          text: 'We use **Unity Analytics** (part of Unity Gaming Services) to understand how players interact with PizzUp!. Data collected is anonymised and aggregated; it is not sold to third parties.',
+          text: 'We use **Google Firebase Analytics** to understand how players interact with PizzUp! and to decide what to improve. This data is not sold to third parties. Google processes it on our behalf.',
         },
         {
           type: 'ul',
-          items: [`Unity Privacy Policy: [unity.com/legal/privacy-policy](${UNITY_PRIVACY})`],
+          items: [
+            'Google privacy policy: [policies.google.com/privacy](https://policies.google.com/privacy)',
+            'Firebase data handling: [firebase.google.com/support/privacy](https://firebase.google.com/support/privacy)',
+          ],
         },
       ],
     },
@@ -104,7 +100,24 @@ export const pizzupPrivacyPolicy: LegalDoc = {
         },
         {
           type: 'p',
-          text: 'You may request deletion of your leaderboard entry at any time by contacting us at the address below.',
+          text: 'Display names are checked automatically when you enter them, and names containing offensive language are refused before they are sent. No filter catches everything. If you see a name you believe is offensive, use the **"Report a name"** button on the leaderboard screen, or email us at the address in Section 11.',
+        },
+        {
+          type: 'p',
+          text: 'You can change your display name at any time from the leaderboard or profile screen. To have your leaderboard entry and display name deleted, email us at the address in Section 11.',
+        },
+        {
+          type: 'p',
+          text: 'If your device is offline, or the leaderboard cannot be reached, PizzUp! shows a locally generated ladder instead and nothing is sent anywhere.',
+        },
+      ],
+    },
+    {
+      title: '6a. Purchases',
+      blocks: [
+        {
+          type: 'p',
+          text: 'Coin packs and subscriptions are sold and processed by Apple through the App Store (or by Google through Google Play). **Payment is handled entirely by the store and we never see your card, bank, or billing details.** We receive only confirmation that a purchase succeeded, which the app uses to unlock what you bought, plus the product name and price for our own analytics.',
         },
       ],
     },
@@ -113,23 +126,15 @@ export const pizzupPrivacyPolicy: LegalDoc = {
       blocks: [
         {
           type: 'p',
-          text: 'PizzUp! is a family-friendly game suitable for players of all ages, including children under 13. We take additional steps to protect the privacy of younger players.',
+          text: 'PizzUp! is a general-audience game and is not directed at children under 13. We do not knowingly collect personal information from children under 13.',
         },
         {
           type: 'p',
-          text: 'For any user we know or have reason to believe is under 13, we do not knowingly collect personal information beyond what is strictly necessary to run the game, and we instruct our advertising and analytics partners to treat such traffic as child-directed. This means:',
-        },
-        {
-          type: 'ul',
-          items: [
-            'Advertising is limited to non-personalised, contextual ads only. The advertising identifier is not used for behavioural profiling, cross-app tracking, or building interest-based audiences.',
-            'Analytics are limited to aggregated, anonymised gameplay data. No persistent identifiers are used to profile individual children.',
-            'The leaderboard username is chosen by the player and is not required to play. We ask players not to use real names or any personal information as their username (see Section 6).',
-          ],
+          text: 'The leaderboard display name is chosen by the player and is not required to play. We ask all players not to use real names or any personal information as a display name (see Section 6).',
         },
         {
           type: 'p',
-          text: "We do not knowingly collect a child's real name, address, phone number, email, precise location, or photos. If you are a parent or guardian and believe your child has provided personal information through the game, please contact us at the address in Section 11 and we will delete it.",
+          text: 'If you are a parent or guardian and believe your child has submitted a display name or other information, contact us at the address in Section 11 and we will delete it.',
         },
       ],
     },
@@ -138,7 +143,16 @@ export const pizzupPrivacyPolicy: LegalDoc = {
       blocks: [
         {
           type: 'p',
-          text: "Leaderboard data (username + score) is retained as long as the leaderboard is active or until you request deletion. Analytics data is retained in aggregated, anonymised form. Advertising identifiers are managed by the respective ad platform's own retention policies.",
+          text: 'Leaderboard data (username + score) is retained as long as the leaderboard is active or until you request deletion. Analytics data is retained in aggregated, anonymised form.',
+        },
+      ],
+    },
+    {
+      title: '8a. International Transfers',
+      blocks: [
+        {
+          type: 'p',
+          text: 'Google and Unity process data on servers that may be located outside your country, including in the United States. Both provide contractual safeguards for those transfers.',
         },
       ],
     },
@@ -151,7 +165,8 @@ export const pizzupPrivacyPolicy: LegalDoc = {
           items: [
             'Access the personal data we hold about you.',
             'Request correction or deletion of your data.',
-            'Opt out of personalised advertising (see Section 4).',
+            'Request deletion of your leaderboard entry and display name.',
+            'Stop all analytics collection by deleting the app.',
           ],
         },
         { type: 'p', text: 'To exercise any of these rights, contact us at the address in Section 11.' },
