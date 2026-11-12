@@ -38,13 +38,13 @@ export default function PizzUpPage() {
         <link rel="canonical" href="https://suparion.com/games/pizzup" />
         <meta property="og:title" content="PizzUp!" />
         <meta property="og:description" content="Pizza stacking game: catch, balance and build the tallest tower in Italy!" />
-        <meta property="og:image" content="https://suparion.com/media/games/pizzup/Horizontal.jpg" />
+        <meta property="og:image" content="https://suparion.com/media/games/pizzup/ItalianAdventureMap.png" />
         <meta property="og:url" content="https://suparion.com/games/pizzup" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="PizzUp!" />
         <meta name="twitter:description" content="Pizza stacking game: catch, balance and build the tallest tower in Italy!" />
-        <meta name="twitter:image" content="https://suparion.com/media/games/pizzup/Horizontal.jpg" />
+        <meta name="twitter:image" content="https://suparion.com/media/games/pizzup/ItalianAdventureMap.png" />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',

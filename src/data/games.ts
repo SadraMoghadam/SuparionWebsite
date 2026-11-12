@@ -28,13 +28,13 @@ export const games: GameConfig[] = [
     },
     media: {
       icon: '/media/games/pizzup/PizzUpIcon.png',
-      background: '/media/games/pizzup/Horizontal.jpg',
+      background: '/media/games/pizzup/ItalianAdventureMap.png',
       trailer: '',
       // Goes live 8:00 tomorrow; the page embeds it automatically once YouTube serves it.
       youtubeId: 'PgyDZDwqv_Q',
       portrait: '/media/games/pizzup/Vertical.jpg',
       gallery: [
-        { type: 'image', src: '/media/games/pizzup/Horizontal.jpg', caption: 'Key art' },
+        { type: 'image', src: '/media/games/pizzup/ItalianAdventureMap.png', caption: 'Key art' },
         { type: 'image', src: '/media/games/pizzup/Vertical.jpg', caption: 'Poster' },
         { type: 'image', src: '/media/games/pizzup/pizzup_1440x2560_20261022-211154.png', caption: 'Gameplay' },
         { type: 'image', src: '/media/games/pizzup/pizzup_1440x2560_20261022-211212.png', caption: 'Gameplay' },
@@ -47,7 +47,6 @@ export const games: GameConfig[] = [
         { type: 'image', src: '/media/games/pizzup/pizzup_1440x2560_20261023-200200.png', caption: 'Gameplay' },
         { type: 'image', src: '/media/games/pizzup/pizzup_1440x2560_20261023-200234.png', caption: 'Gameplay' },
         { type: 'image', src: '/media/games/pizzup/pizzup_1440x2560_20261023-200352.png', caption: 'Gameplay' },
-        { type: 'image', src: '/media/games/pizzup/PizzUp! Italian Pizza Adventure Map.png', caption: 'Italian adventure map' },
         { type: 'image', src: '/media/games/pizzup/PizzUpIcon.png', caption: 'App icon' },
       ],
     },
