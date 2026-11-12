@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
@@ -8,6 +9,25 @@ import GameSocials from '../components/GameSocials';
 
 export default function PizzUpPage() {
   const game = getGame('pizzup');
+  const youtubeId = game?.media.youtubeId;
+  const [videoLive, setVideoLive] = useState(false);
+
+  // The trailer is scheduled: YouTube's oEmbed endpoint only answers 200 once the video is public,
+  // so the embed swaps in by itself. Any failure keeps the key art.
+  useEffect(() => {
+    if (!youtubeId) return;
+    const ctrl = new AbortController();
+    fetch(
+      `https://www.youtube.com/oembed?format=json&url=${encodeURIComponent(
+        `https://www.youtube.com/watch?v=${youtubeId}`,
+      )}`,
+      { signal: ctrl.signal },
+    )
+      .then((r) => setVideoLive(r.ok))
+      .catch(() => {});
+    return () => ctrl.abort();
+  }, [youtubeId]);
+
   if (!game) return null;
 
   return (
@@ -17,13 +37,13 @@ export default function PizzUpPage() {
         <meta name="description" content="PizzUp! is a pizza stacking game: catch, balance and build the tallest tower in Italy. A new arcade game from Suparion Games, coming soon to iOS and Android." />
         <link rel="canonical" href="https://suparion.com/games/pizzup" />
         <meta property="og:title" content="PizzUp!" />
-        <meta property="og:description" content="Pizza stacking game: catch, balance and build the tallest tower in Italy! Coming soon to iOS and Android." />
+        <meta property="og:description" content="Pizza stacking game: catch, balance and build the tallest tower in Italy!" />
         <meta property="og:image" content="https://suparion.com/media/games/pizzup/Horizontal.jpg" />
         <meta property="og:url" content="https://suparion.com/games/pizzup" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="PizzUp!" />
-        <meta name="twitter:description" content="Pizza stacking game: catch, balance and build the tallest tower in Italy! Coming soon to iOS and Android." />
+        <meta name="twitter:description" content="Pizza stacking game: catch, balance and build the tallest tower in Italy!" />
         <meta name="twitter:image" content="https://suparion.com/media/games/pizzup/Horizontal.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -107,18 +127,35 @@ export default function PizzUpPage() {
             <StoreButtons game={game} />
           </div>
         </div>
-        <div className="relative mx-auto w-full max-w-[320px] sm:max-w-[380px]">
-          <div className="absolute -inset-6 rounded-[2.5rem] bg-accent/15 blur-3xl opacity-60" />
-          <div className="relative aspect-[9/16] rounded-[2rem] overflow-hidden border border-white/10 bg-black shadow-2xl shadow-black/60">
-            <img
-              src={game.media.portrait ?? game.media.background}
-              alt={`${game.title} key art`}
-              className="absolute inset-0 w-full h-full object-cover"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-[2rem] pointer-events-none" />
+        {videoLive && game.media.youtubeId ? (
+          <div className="relative w-full">
+            <div className="absolute -inset-6 rounded-[2.5rem] bg-accent/15 blur-3xl opacity-60" />
+            <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 bg-black shadow-2xl shadow-black/60">
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src={`https://www.youtube-nocookie.com/embed/${game.media.youtubeId}`}
+                title={`${game.title} trailer`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                loading="lazy"
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="relative mx-auto w-full max-w-[320px] sm:max-w-[380px]">
+            <div className="absolute -inset-6 rounded-[2.5rem] bg-accent/15 blur-3xl opacity-60" />
+            <div className="relative aspect-[9/16] rounded-[2rem] overflow-hidden border border-white/10 bg-black shadow-2xl shadow-black/60">
+              <img
+                src={game.media.portrait ?? game.media.background}
+                alt={`${game.title} key art`}
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-[2rem] pointer-events-none" />
+            </div>
+          </div>
+        )}
       </section>
 
       {/* Features */}
