@@ -22,9 +22,8 @@ export const games: GameConfig[] = [
     genre: 'Casual arcade stacking',
     platforms: ['ios', 'android'],
     storeLinks: {
-      // TODO: paste real store URLs at launch.
-      ios: '',
-      android: '',
+      ios: 'https://apps.apple.com/it/app/pizzup/id6812298767?l=en-GB',
+      android: 'https://play.google.com/store/apps/details?id=com.suparion.pizzup',
     },
     media: {
       icon: '/media/games/pizzup/PizzUpIcon.png',
